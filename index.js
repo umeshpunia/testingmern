@@ -18,6 +18,9 @@ const app = express();
 app.use(cors())
 app.use('/images', express.static('assets/images'));
 app.use(express.json());
+
+// routes
+app.use('/',express.static('public'))
 app.use('/api/admin/user/',adminUserRoutes)
 app.use('/api/admin/category/',catRoutes)
 app.use('/api/admin/product/',proRoutes)
@@ -37,6 +40,4 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@um
 
 
 
-// routes
-app.use('/',express.static('public'))
 
